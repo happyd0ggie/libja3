@@ -449,7 +449,7 @@ int get_ja3_struct_from_segment(const u_char *payload, uint payload_len, struct 
   /* Typecast u_char* to unsigned char* */
   MD5((unsigned char *)ja3->ja3str, ja3->ja3str_len, ja3->ja3hash);
   //ja3->ja3hash_hex = malloc(sizeof(char)*0x20); 
-  md5_to_str(ja3->ja3hash, ja3->ja3hash_hex);
+  md5_to_str(ja3->ja3hash, ja3->ja3hexstr);
 
   /* Set result point to point to the ja3_struct */
   *result = ja3; 
@@ -646,7 +646,7 @@ ja3_type get_ja3_hexstr_from_segment(const u_char *payload, uint payload_len, ch
   /* Copies result */
   *result = malloc(sizeof(char) * JA3HEXSTR_LEN);
   memset(*result, 0, JA3HEXSTR_LEN);
-  strcpy(*result, js->ja3hash_hex); 
+  strcpy(*result, js->ja3hexstr); 
   ja3_type t = js->t; 
   
   /* Free ja3_struct */
