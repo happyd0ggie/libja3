@@ -2,7 +2,7 @@ CC 		= gcc
 BUILDDIR 	= ./build
 SOURCEDIR 	= ./src
 LIB 		= $(BUILDDIR)/libja3.a
-OPT 		= -Wall -Werror -ggdb -O2
+OPT 		= -Wall -Werror -ggdb -O2 -Wno-error=deprecated-declarations
 TARGET   	= $(BUILDDIR)/ja3sum
 LDFLAGS  	= -lpcap -L$(BUILDDIR) -lja3  -lssl -lcrypto 
 TESTDIR 	= ./tests
